@@ -1,0 +1,13 @@
+create table People(
+id int NOT NULL auto_increment primary key,
+full_name varchar(50) not null,
+age int not null
+);
+
+create table Books(
+id int NOT NULL auto_increment primary key,
+name varchar(50) not null,
+author varchar(50) not null,
+year int not null,
+id_people int REFERENCES People(id) ON DELETE SET NULL
+);
