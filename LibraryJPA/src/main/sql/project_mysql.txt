@@ -1,0 +1,15 @@
+CREATE TABLE People (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    fullName VARCHAR(50) NOT NULL,
+    age INT NOT NULL
+);
+
+CREATE TABLE Books (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    author VARCHAR(50) NOT NULL,
+    year INT NOT NULL,
+    taken_at TIMESTAMP,
+    id_people INT,
+    FOREIGN KEY (id_people) REFERENCES People(id) ON DELETE SET NULL
+);

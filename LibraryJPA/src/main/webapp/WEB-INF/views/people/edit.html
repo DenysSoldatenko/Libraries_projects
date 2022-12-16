@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Оновити людину</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/people/{id}(id=${people.getId()})}"
+      th:object="${people}">
+
+    <label for="fullName">Введіть ПІБ: </label>
+    <input type="text" th:field="*{fullName}" id="fullName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}"
+         th:errors="*{fullName}">Name Error
+    </div>
+    <br/>
+
+    <p></p>
+    <label for="age">Введіть вік: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}"
+         th:errors="*{age}">Age Error
+    </div>
+    <br/>
+
+    <p></p>
+    <input type="submit" value="Оновити"/>
+</form>
+
+</body>
+</html>

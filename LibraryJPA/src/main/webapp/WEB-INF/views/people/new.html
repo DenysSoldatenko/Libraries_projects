@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Нова людина</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/people}" th:object="${people}">
+
+    <label for="name">Введіть ПІБ: </label>
+    <input type="text" th:field="*{fullName}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}"
+         th:errors="*{fullName}">Помилка у полі ПІБ
+    </div>
+    <br/>
+
+    <p></p>
+    <label for="age">Введіть вік: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}"
+         th:errors="*{age}">Помилка у полі Ім'я
+    </div>
+    <br/>
+
+    <p></p>
+    <input type="submit" value="Створити!"/>
+</form>
+
+</body>
+</html>
