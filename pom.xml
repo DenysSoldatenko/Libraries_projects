@@ -11,6 +11,7 @@
     <modules>
         <module>LibraryJDBC</module>
         <module>LibraryJPA</module>
+        <module>LibrarySystem</module>
     </modules>
 
     <properties>

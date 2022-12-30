@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Author</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href=" https://use.fontawesome.com/releases/v5.4.1/css/all.css ">
+</head>
+
+<body>
+<div th:insert="header :: header"></div>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <form th:method="POST" th:action="@{/save-new-author}"
+                  th:object="${author}">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label for="name" class="col-form-label">Author
+                            name: </label>
+                        <input type="text" th:field="*{name}"
+                               class="form-control" id="name"
+                               placeholder="Name"/>
+                        <div style="color:red"
+                             th:if="${#fields.hasErrors('name')}"
+                             th:errors="*{name}">Name Error
+                        </div>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label for="name"
+                               class="col-form-label">Description: </label>
+                        <input type="text" th:field="*{description}"
+                               class="form-control" id="description"
+                               placeholder="Description"/>
+                        <div style="color:red"
+                             th:if="${#fields.hasErrors('description')}"
+                             th:errors="*{description}">Description Error
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary"
+                               value="Submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
